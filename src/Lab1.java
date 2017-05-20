@@ -3,9 +3,9 @@ import java.util.Random;
 public class Lab1 {
 
     private static final long RANDOM_SEED = 1;
-    private static final int SIZE = 100000;
+    private static final int SIZE = 10;
     private static final int MAX_NUM = SIZE;
-    private static final int ITERATIONS = 10;
+    private static final int ITERATIONS = 1;
     private static final int K = 75;
     private static final boolean PRINT_ALL_TIMES = false;
 
@@ -22,7 +22,7 @@ public class Lab1 {
 
         Context insertionSortContext = new Context(new InsertionSort());
         Context mergeSortContext = new Context(new MergeSort());
-        Context threadedMergeSortContext = new Context(new ThreadedMergeSort());
+        Context threadedMergeSortContext = new Context(new ThreadedMergeSort(4));
         Context mergeInsertionSortContext = new Context(new MergeInsertSort(K));
         Context quickSortContext = new Context(new QuickSort());
         Context threadedQuickSortContext = new Context(new ThreadedQuickSort());
@@ -62,13 +62,9 @@ public class Lab1 {
     }
 
     private static void executeAlgorithm(Context context) {
-        try {
-            for (int i = 0; i < ITERATIONS; i++) {
-                    resetCopyArray();
-                    context.executeAlgorithm(copyArray);
-            }
-        } catch (Exception e) {
-            System.err.println("An array was not sorted correctly");
+        for (int i = 0; i < ITERATIONS; i++) {
+            resetCopyArray();
+            context.executeAlgorithm(copyArray);
         }
     }
 

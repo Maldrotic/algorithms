@@ -11,7 +11,7 @@ public class Context {
         this.runTimes = new ArrayList<>();
     }
 
-    public void executeAlgorithm(int[] array) throws Exception {
+    public void executeAlgorithm(int[] array) {
         runTimes.add(strategy.run(array));
     }
 

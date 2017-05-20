@@ -7,7 +7,7 @@ public abstract class Strategy {
         int[] a = sort(array);
         long stopTime = System.currentTimeMillis();
         checkArray(a);
-        return (stopTime - startTime)/1000.0;
+        return (double) (stopTime - startTime)/1000.0;
     }
     abstract int[] sort(int[] array);
     abstract String getName();
